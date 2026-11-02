@@ -100,6 +100,7 @@
                 <!-- Desktop Nav Links -->
                 <nav class="hidden md:flex items-center space-x-1">
                     <button onclick="scrollToSection('project-overview')" class="px-3 py-2 text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800 rounded-lg transition">Overview</button>
+                    <button onclick="scrollToSection('projects-gallery')" class="px-3 py-2 text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800 rounded-lg transition">All Projects</button>
                     <button onclick="scrollToSection('architecture')" class="px-3 py-2 text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800 rounded-lg transition">Medallion Flow</button>
                     <button onclick="scrollToSection('code-inspector')" class="px-3 py-2 text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800 rounded-lg transition">PySpark Code</button>
                     <button onclick="scrollToSection('powerbi-demo')" class="px-3 py-2 text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800 rounded-lg transition">Live Power BI Demo</button>
@@ -176,6 +177,69 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- PROJECT SELECTOR GALLERY SECTION -->
+        <section id="projects-gallery" class="space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div>
+                    <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-folder-open text-sky-400"></i> Enterprise Data Engineering Portfolio Projects
+                    </h2>
+                    <p class="text-xs text-slate-400">Select a project below to update the interactive architecture flow, code inspector, and dashboard previews.</p>
+                </div>
+                <span class="text-xs font-mono text-slate-400 bg-slate-900 px-3 py-1 rounded-lg border border-slate-800">3 Production Repositories</span>
+            </div>
+
+            <!-- Project Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                
+                <!-- Project 1 Card: Retail Lakehouse (Active by default) -->
+                <div onclick="switchProject('retail')" id="proj-card-retail" class="cursor-pointer bg-slate-900 p-5 rounded-xl border-2 border-sky-500 shadow-lg shadow-sky-500/10 space-y-3 relative transition-all duration-200">
+                    <div class="flex items-center justify-between text-xs font-mono">
+                        <span class="px-2 py-0.5 rounded bg-sky-950 text-sky-400 border border-sky-800">RETAIL & E-COMMERCE</span>
+                        <span id="badge-retail" class="text-sky-400 font-bold"><i class="fa-solid fa-circle-check"></i> Active</span>
+                    </div>
+                    <h3 class="font-bold text-white text-sm">Retail Sales & Inventory Optimization Lakehouse</h3>
+                    <p class="text-xs text-slate-400 line-clamp-2">Microsoft Fabric Medallion Lakehouse with PySpark notebooks, inventory alerts, and Direct Lake Power BI Copilot.</p>
+                    <div class="pt-2 flex flex-wrap gap-1.5 text-[10px] font-mono">
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Fabric</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">PySpark</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Direct Lake</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 Card: Healthcare Claims -->
+                <div onclick="switchProject('healthcare')" id="proj-card-healthcare" class="cursor-pointer bg-slate-900 p-5 rounded-xl border border-slate-800 hover:border-emerald-500/50 space-y-3 relative transition-all duration-200">
+                    <div class="flex items-center justify-between text-xs font-mono">
+                        <span class="px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800">HEALTHCARE & CLAIMS</span>
+                        <span id="badge-healthcare" class="text-slate-500">Select</span>
+                    </div>
+                    <h3 class="font-bold text-white text-sm">Healthcare Claims Analytics & HIPAA Governance Engine</h3>
+                    <p class="text-xs text-slate-400 line-clamp-2">Multi-terabyte Medicare claims pipeline, PySpark clinical transformations, RLS/OLS security, and Star Ratings scorecards.</p>
+                    <div class="pt-2 flex flex-wrap gap-1.5 text-[10px] font-mono">
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">ADF</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">PySpark</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">HIPAA / RLS</span>
+                    </div>
+                </div>
+
+                <!-- Project 3 Card: Financial Fraud -->
+                <div onclick="switchProject('finance')" id="proj-card-finance" class="cursor-pointer bg-slate-900 p-5 rounded-xl border border-slate-800 hover:border-indigo-500/50 space-y-3 relative transition-all duration-200">
+                    <div class="flex items-center justify-between text-xs font-mono">
+                        <span class="px-2 py-0.5 rounded bg-indigo-950 text-indigo-400 border border-indigo-800">FINANCIAL SERVICES</span>
+                        <span id="badge-finance" class="text-slate-500">Select</span>
+                    </div>
+                    <h3 class="font-bold text-white text-sm">Real-Time Financial Fraud Detection & Risk Pipeline</h3>
+                    <p class="text-xs text-slate-400 line-clamp-2">Azure Databricks streaming ingestion, dbt transformation modeling, MongoDB integration, and high-frequency risk scoring.</p>
+                    <div class="pt-2 flex flex-wrap gap-1.5 text-[10px] font-mono">
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Databricks</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">dbt</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">MongoDB</span>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -531,7 +595,278 @@
 
     <!-- JavaScript Logic & Data Handling -->
     <script>
-        // PySpark Code Snippets for Tab Switching
+        // Project Specific Master Data
+        const projectsData = {
+            retail: {
+                title: "End-to-End Retail Sales & Inventory Optimization Lakehouse",
+                repoName: "ms-fabric-retail-lakehouse",
+                silverFile: "01_bronze_to_silver_retail_cleansing.py",
+                goldFile: "02_silver_to_gold_star_schema.py",
+                silverCode: `# ==============================================================================
+# PIPELINE: Bronze to Silver Cleansing (Microsoft Fabric PySpark Notebook)
+# AUTHOR: Abhishek Das (Senior Data & Analytics Engineer)
+# DESCRIPTION: Cleanses raw retail POS transaction logs, handles nulls, and deduplicates
+# ==============================================================================
+
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import col, when, current_timestamp, to_date, trim, upper
+
+# 1. Read Raw Delta Table from Bronze Lakehouse
+bronze_df = spark.read.format("delta").table("retail_lakehouse.bronze_pos_transactions")
+
+# 2. Perform Data Scrubbing & Schema Validation
+silver_cleansed_df = (
+    bronze_df
+    .dropDuplicates(["transaction_id", "store_id"])
+    .withColumn("product_category", upper(trim(col("product_category"))))
+    .withColumn("store_region", upper(trim(col("store_region"))))
+    .withColumn("quantity", when(col("quantity").isNull() | (col("quantity") <= 0), 1).otherwise(col("quantity")))
+    .withColumn("unit_price", when(col("unit_price").isNull(), 0.0).otherwise(col("unit_price")))
+    .withColumn("total_amount", col("quantity") * col("unit_price"))
+    .withColumn("transaction_date", to_date(col("transaction_timestamp")))
+    .withColumn("silver_ingested_at", current_timestamp())
+)
+
+# 3. Write Cleansed Data to Silver Delta Layer
+(
+    silver_cleansed_df.write
+    .format("delta")
+    .mode("overwrite")
+    .option("overwriteSchema", "true")
+    .saveAsTable("retail_lakehouse.silver_pos_transactions")
+)
+
+print("Successfully transformed Bronze raw logs to Silver refined Delta Table.")`,
+                goldCode: `# ==============================================================================
+# PIPELINE: Silver to Gold Star Schema Modeling (Delta Lake Star Schema)
+# AUTHOR: Abhishek Das (Senior Data & Analytics Engineer)
+# DESCRIPTION: Constructs Fact_Sales and Dim_Product for Direct Lake Power BI Consumption
+# ==============================================================================
+
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import col, hash, current_timestamp
+
+silver_df = spark.read.format("delta").table("retail_lakehouse.silver_pos_transactions")
+
+# Gold Dimension Table
+dim_product_df = (
+    silver_df
+    .select("product_id", "product_name", "product_category")
+    .distinct()
+    .withColumn("product_key", hash(col("product_id")))
+)
+dim_product_df.write.format("delta").mode("overwrite").saveAsTable("retail_lakehouse.gold_dim_product")
+
+# Gold Fact Table
+fact_sales_df = (
+    silver_df
+    .select(
+        col("transaction_id"),
+        col("transaction_date"),
+        col("store_id"),
+        col("product_id"),
+        hash(col("product_id")).alias("product_key"),
+        col("quantity"),
+        col("unit_price"),
+        col("total_amount")
+    )
+    .withColumn("gold_loaded_at", current_timestamp())
+)
+fact_sales_df.write.format("delta").mode("overwrite").saveAsTable("retail_lakehouse.gold_fact_sales")
+
+print("Gold Layer Star Schema successfully published to OneLake.")`,
+                readmeMarkdown: `# Retail Sales & Inventory Optimization Lakehouse (Microsoft Fabric)
+[![Microsoft Fabric](https://img.shields.io/badge/Microsoft_Fabric-Certified-0078D4?logo=microsoft)](https://learn.microsoft.com) [![PySpark](https://img.shields.io/badge/PySpark-3.4+-E25A1C?logo=apachespark)](https://spark.apache.org) [![Delta Lake](https://img.shields.io/badge/Delta_Lake-Medallion-00ADF0)](https://delta.io)
+
+End-to-end enterprise retail analytics lakehouse using Microsoft Fabric, PySpark, Delta Lake, and Direct Lake Power BI.
+
+## 🏗️ Architecture Overview
+- Bronze Layer: Raw ingestion from POS, SAP, and SFTP into OneLake using ADF pipelines.
+- Silver Layer: PySpark cleaning notebooks, null handling, deduplication, and schema enforcement.
+- Gold Layer: Star Schema modeling (Fact_Sales, Dim_Product) stored in Delta format.
+- Reporting: Direct Lake mode in Power BI with Copilot AI storytelling narratives.`
+            },
+            healthcare: {
+                title: "Healthcare Claims Analytics & HIPAA Governance Engine",
+                repoName: "healthcare-claims-fabric-analytics",
+                silverFile: "01_claims_deduplication_hipaa_scrub.py",
+                goldFile: "02_gold_medicare_star_ratings_model.py",
+                silverCode: `# ==============================================================================
+# PIPELINE: Healthcare Claims Deduplication & HIPAA Data Scrubbing
+# AUTHOR: Abhishek Das (Senior Data & Analytics Engineer)
+# DESCRIPTION: Scrubs PHI/PII fields and validates ICD-10 medical claims data
+# ==============================================================================
+
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import col, sha2, current_timestamp, when, regexp_replace
+
+claims_bronze_df = spark.read.format("delta").table("healthcare_lakehouse.bronze_medicare_claims")
+
+# Hash Patient HICN/SSN for HIPAA compliance and standardize ICD-10 codes
+claims_silver_df = (
+    claims_bronze_df
+    .dropDuplicates(["claim_id", "member_id"])
+    .withColumn("hashed_member_id", sha2(col("member_id"), 256))
+    .drop("member_id", "patient_ssn") # Remove raw PHI fields
+    .withColumn("icd10_diagnosis_code", regexp_replace(col("icd10_code"), "[^A-Za-z0-9]", ""))
+    .withColumn("claim_status", when(col("paid_amount") > 0, "APPROVED").otherwise("DENIED"))
+    .withColumn("silver_processed_at", current_timestamp())
+)
+
+claims_silver_df.write.format("delta").mode("overwrite").saveAsTable("healthcare_lakehouse.silver_claims")
+print("HIPAA Scrubbed Claims written to Silver Lakehouse Layer.")`,
+                goldCode: `# ==============================================================================
+# PIPELINE: Healthcare Gold Star Schema & Star Rating KPIs
+# AUTHOR: Abhishek Das (Senior Data & Analytics Engineer)
+# DESCRIPTION: Aggregates member retention, MLR (Medical Loss Ratio), & CMS Star Ratings
+# ==============================================================================
+
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import col, sum, count, round
+
+silver_claims = spark.read.format("delta").table("healthcare_lakehouse.silver_claims")
+
+gold_mlr_kpis = (
+    silver_claims
+    .groupBy("plan_id", "provider_network", "claim_year")
+    .agg(
+        sum("paid_amount").alias("total_medical_payout"),
+        count("claim_id").alias("total_claim_count"),
+        round(sum("paid_amount") / sum("premium_revenue"), 4).alias("medical_loss_ratio")
+    )
+)
+
+gold_mlr_kpis.write.format("delta").mode("overwrite").saveAsTable("healthcare_lakehouse.gold_plan_performance")
+print("Gold Healthcare KPIs & MLR Data Model Published.")`,
+                readmeMarkdown: `# Healthcare Claims Analytics & HIPAA Governance Engine
+[![Microsoft Fabric](https://img.shields.io/badge/Microsoft_Fabric-Certified-0078D4?logo=microsoft)](https://learn.microsoft.com) [![HIPAA Compliance](https://img.shields.io/badge/HIPAA-Compliant_RLS/OLS-emerald)](https://cms.gov)
+
+Multi-terabyte Medicare & Medicaid claims processing pipeline in Microsoft Fabric with RLS/OLS security.
+
+## 🏗️ Highlights
+- Anonymized PHI data via PySpark SHA-256 hashing in Silver transformation notebooks.
+- Enforced Row-Level Security (RLS) in Power BI for provider networks.
+- Modeled CMS Star Ratings and Medical Loss Ratio (MLR) dashboards.`
+            },
+            finance: {
+                title: "Real-Time Financial Fraud Detection & Risk Pipeline",
+                repoName: "finance-fraud-detection-databricks",
+                silverFile: "01_streaming_transaction_ingest.py",
+                goldFile: "02_dbt_gold_risk_scoring_model.sql",
+                silverCode: `# ==============================================================================
+# PIPELINE: Azure Databricks Streaming Transaction Ingestion & Anomaly Filter
+# AUTHOR: Abhishek Das (Senior Data & Analytics Engineer)
+# DESCRIPTION: Stream ingestion from MongoDB/Kafka into Delta Lake with risk scoring
+# ==============================================================================
+
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import col, from_json, expr
+
+# Structured Streaming from Transaction Queue
+streaming_df = (
+    spark.readStream
+    .format("delta")
+    .table("finance_lakehouse.bronze_transactions_stream")
+    .filter(col("transaction_amount") > 0)
+    .withColumn("high_risk_flag", expr("CASE WHEN transaction_amount > 10000 AND foreign_country = 1 THEN 1 ELSE 0 END"))
+)
+
+query = (
+    streaming_df.writeStream
+    .format("delta")
+    .outputMode("append")
+    .option("checkpointLocation", "/mnt/delta/checkpoints/fraud_silver")
+    .table("finance_lakehouse.silver_transactions")
+)
+print("Databricks Structured Streaming Fraud Filter Active.")`,
+                goldCode: `-- ==============================================================================
+-- MODEL: dbt Gold Risk Scoring Model (finance_gold_risk_scores.sql)
+-- AUTHOR: Abhishek Das (Senior Data & Analytics Engineer)
+-- DESCRIPTION: Generates customer risk profiles and fraud audit feeds
+-- ==============================================================================
+
+{{ config(materialized='table', schema='gold') }}
+
+SELECT 
+    customer_id,
+    account_type,
+    COUNT(transaction_id) AS total_transactions_24h,
+    SUM(transaction_amount) AS total_volume_usd,
+    SUM(high_risk_flag) AS risk_trigger_count,
+    CASE 
+        WHEN SUM(high_risk_flag) >= 3 THEN 'CRITICAL_LOCK'
+        WHEN SUM(high_risk_flag) >= 1 THEN 'SUSPICIOUS'
+        ELSE 'NORMAL'
+    END AS risk_status
+FROM {{ ref('silver_transactions') }}
+GROUP BY customer_id, account_type`,
+                readmeMarkdown: `# Real-Time Financial Fraud Detection & Risk Pipeline
+[![Databricks](https://img.shields.io/badge/Azure_Databricks-PySpark-red)](https://databricks.com) [![dbt](https://img.shields.io/badge/dbt-Data_Build_Tool-orange)](https://getdbt.com)
+
+High-throughput financial risk scoring pipeline powered by Azure Databricks, Delta Lake streaming, and dbt.`
+            }
+        };
+
+        let currentActiveProject = 'retail';
+        let currentActiveCodeTab = 'silver';
+
+        // Project Switcher Handler
+        function switchProject(projKey) {
+            currentActiveProject = projKey;
+            const data = projectsData[projKey];
+
+            // Update Card Highlights
+            ['retail', 'healthcare', 'finance'].forEach(key => {
+                const card = document.getElementById(`proj-card-${key}`);
+                const badge = document.getElementById(`badge-${key}`);
+                if (key === projKey) {
+                    card.className = "cursor-pointer bg-slate-900 p-5 rounded-xl border-2 border-sky-500 shadow-lg shadow-sky-500/10 space-y-3 relative transition-all duration-200";
+                    badge.className = "text-sky-400 font-bold";
+                    badge.innerHTML = '<i class="fa-solid fa-circle-check"></i> Active';
+                } else {
+                    card.className = "cursor-pointer bg-slate-900 p-5 rounded-xl border border-slate-800 hover:border-slate-700 space-y-3 relative transition-all duration-200";
+                    badge.className = "text-slate-500";
+                    badge.textContent = "Select";
+                }
+            });
+
+            // Update Code Inspector Content
+            switchCodeTab(currentActiveCodeTab);
+
+            // Update README Box
+            document.getElementById('readme-markdown-box').innerText = data.readmeMarkdown;
+
+            // Trigger Dashboard Update
+            updateDashboardMetrics();
+
+            showToast(`Switched view to: ${data.title}`);
+        }
+
+        // Updated Switch Code Tab
+        function switchCodeTab(tab) {
+            currentActiveCodeTab = tab;
+            const data = projectsData[currentActiveProject];
+            const silverBtn = document.getElementById('tab-btn-silver');
+            const goldBtn = document.getElementById('tab-btn-gold');
+            const codeEl = document.getElementById('code-content');
+            const filenameEl = document.getElementById('code-filename');
+
+            if (tab === 'silver') {
+                silverBtn.className = "px-3 py-1.5 rounded-md font-medium text-white bg-sky-600 shadow-sm transition";
+                goldBtn.className = "px-3 py-1.5 rounded-md font-medium text-slate-400 hover:text-white transition";
+                codeEl.textContent = data.silverCode;
+                filenameEl.textContent = data.silverFile;
+            } else {
+                goldBtn.className = "px-3 py-1.5 rounded-md font-medium text-white bg-sky-600 shadow-sm transition";
+                silverBtn.className = "px-3 py-1.5 rounded-md font-medium text-slate-400 hover:text-white transition";
+                codeEl.textContent = data.goldCode;
+                filenameEl.textContent = data.goldFile;
+            }
+        }
+
+        // Initialize Page Default Code
+        document.getElementById('code-content').textContent = projectsData.retail.silverCode;
+
         const codeSnippets = {
             silver: `# ==============================================================================
 # PIPELINE: Bronze to Silver Cleansing (Microsoft Fabric PySpark Notebook)
@@ -717,20 +1052,58 @@ print("Gold Layer Star Schema (Fact_Sales, Dim_Product) successfully published t
             }, 3000);
         }
 
+        // Safe Clipboard Fallback Helper (handles iframe permissions policy restrictions)
+        function copyToClipboard(text, successMsg) {
+            try {
+                // Create temporary hidden textarea
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                textarea.style.position = 'fixed';
+                textarea.style.left = '-9999px';
+                textarea.style.top = '0';
+                document.body.appendChild(textarea);
+                textarea.focus();
+                textarea.select();
+
+                const successful = document.execCommand('copy');
+                document.body.removeChild(textarea);
+
+                if (successful) {
+                    showToast(successMsg);
+                } else if (navigator.clipboard && navigator.clipboard.writeText) {
+                    // Fallback to Clipboard API if execCommand returned false
+                    navigator.clipboard.writeText(text)
+                        .then(() => showToast(successMsg))
+                        .catch(() => showToast("Failed to copy. Please select manually."));
+                } else {
+                    showToast("Copy failed. Please copy manually.");
+                }
+            } catch (err) {
+                // Secondary Fallback to standard Clipboard API
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(text)
+                        .then(() => showToast(successMsg))
+                        .catch(() => showToast("Copying not allowed in current iframe setup."));
+                } else {
+                    showToast("Unable to copy automatically.");
+                }
+            }
+        }
+
         // Clipboard Actions
         function copyContactInfo() {
             const text = "Abhishek Das | Phone: (561)-876-0555 | Email: abhishekdas.azure@gmail.com";
-            navigator.clipboard.writeText(text).then(() => showToast("Contact info copied!"));
+            copyToClipboard(text, "Contact info copied!");
         }
 
         function copyCodeSnippet() {
             const codeText = document.getElementById('code-content').textContent;
-            navigator.clipboard.writeText(codeText).then(() => showToast("PySpark code copied!"));
+            copyToClipboard(codeText, "PySpark code copied!");
         }
 
         function copyReadmeMarkdown() {
             const markdownText = document.getElementById('readme-markdown-box').innerText;
-            navigator.clipboard.writeText(markdownText).then(() => showToast("Markdown README copied!"));
+            copyToClipboard(markdownText, "Markdown README copied!");
         }
 
         // Smooth Scroll Helper
