@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhishek Das | Senior Data & Analytics Engineer Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                            fabric: '#0078d4',
+                            gold: '#f59e0b',
+                            silver: '#9ca3af',
+                            bronze: '#b45309'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Segoe UI', 'sans-serif'],
+                        mono: ['Fira Code', 'Consolas', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome & Lucide Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-border {
+            border-image: linear-gradient(to right, #0284c7, #6366f1) 1;
+        }
+        .code-block {
+            font-family: 'Fira Code', monospace;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased min-h-screen flex flex-col selection:bg-sky-500 selection:text-white">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-gradient-to-r from-sky-900 via-indigo-900 to-slate-900 text-sky-200 text-xs py-1.5 px-4 text-center border-b border-sky-800/40 flex items-center justify-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span>Available for Senior Data Engineer & Data Architect Roles</span>
+        <span class="opacity-50">|</span>
+        <span class="font-semibold text-white">Fabric Analytics Engineer Certified</span>
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Profile / Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-500 to-indigo-600 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-sky-500/20 ring-2 ring-sky-400/30">
+                        AD
+                    </div>
+                    <div>
+                        <h1 class="text-lg font-bold text-white leading-tight flex items-center gap-2">
+                            Abhishek Das
+                            <span class="text-xs font-normal px-2 py-0.5 rounded-full bg-sky-950 text-sky-400 border border-sky-800">9+ Yrs Exp</span>
+                        </h1>
+                        <p class="text-xs text-slate-400">Senior Data & Analytics Engineer | Fabric & Azure Specialist</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Nav Links -->
+                <nav class="hidden md:flex items-center space-x-1">
+                    <button onclick="scrollToSection('project-overview')" class="px-3 py-2 text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800 rounded-lg transition">Overview</button>
+                    <button onclick="scrollToSection('architecture')" class="px-3 py-2 text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800 rounded-lg transition">Medallion Flow</button>
+                    <button onclick="scrollToSection('code-inspector')" class="px-3 py-2 text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800 rounded-lg transition">PySpark Code</button>
+                    <button onclick="scrollToSection('powerbi-demo')" class="px-3 py-2 text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800 rounded-lg transition">Live Power BI Demo</button>
+                    <button onclick="scrollToSection('github-readme')" class="px-3 py-2 text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800 rounded-lg transition">GitHub Blueprint</button>
+                </nav>
+
+                <!-- Action Buttons -->
+                <div class="flex items-center space-x-2">
+                    <a href="mailto:abhishekdas.azure@gmail.com" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-slate-200 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-lg transition">
+                        <i class="fa-solid fa-envelope text-sky-400"></i> Contact
+                    </a>
+                    <button onclick="copyContactInfo()" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-white bg-gradient-to-r from-sky-600 to-indigo-600 hover:from-sky-500 hover:to-indigo-500 rounded-lg shadow-sm transition">
+                        <i class="fa-solid fa-copy"></i> Copy Contact
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+
+        <!-- HERO SECTION & CERTIFICATIONS -->
+        <section class="bg-gradient-to-br from-slate-900 via-slate-900 to-sky-950/40 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl relative overflow-hidden">
+            <div class="absolute -right-16 -top-16 w-64 h-64 bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -left-16 -bottom-16 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-8 space-y-4">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-300 text-xs font-medium">
+                        <i class="fa-solid fa-award"></i> Featured Enterprise Project Showcase
+                    </div>
+                    <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+                        End-to-End Retail Sales & Inventory Optimization Lakehouse
+                    </h2>
+                    <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-3xl">
+                        A greenfield enterprise architecture built on <strong class="text-sky-400">Microsoft Fabric</strong> using the <strong class="text-amber-400">Medallion Architecture (Bronze, Silver, Gold)</strong> pattern. Orchestrated with Azure Data Factory pipelines, processed via PySpark notebooks, and delivered via Power BI Direct Lake mode with Copilot AI storytelling.
+                    </p>
+                    
+                    <!-- Certifications Badges -->
+                    <div class="pt-2 flex flex-wrap gap-2.5 items-center">
+                        <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider mr-1">Certifications:</span>
+                        <div class="flex items-center gap-1.5 px-3 py-1 rounded-md bg-slate-800/80 border border-sky-500/40 text-xs font-medium text-sky-200">
+                            <i class="fa-brands fa-microsoft text-sky-400"></i> Fabric Analytics Engineer Associate
+                        </div>
+                        <div class="flex items-center gap-1.5 px-3 py-1 rounded-md bg-slate-800/80 border border-slate-700 text-xs font-medium text-slate-300">
+                            <i class="fa-solid fa-cloud text-indigo-400"></i> Azure Fundamentals (AZ-900)
+                        </div>
+                        <div class="flex items-center gap-1.5 px-3 py-1 rounded-md bg-slate-800/80 border border-slate-700 text-xs font-medium text-slate-300">
+                            <i class="fa-solid fa-fire text-amber-500"></i> Databricks Fundamentals
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Stats Box -->
+                <div class="lg:col-span-4 bg-slate-950/60 rounded-xl p-5 border border-slate-800/80 space-y-4">
+                    <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider border-b border-slate-800 pb-2">Technical Highlights</h3>
+                    <div class="grid grid-cols-2 gap-3 text-center">
+                        <div class="p-3 bg-slate-900/80 rounded-lg border border-slate-800">
+                            <div class="text-xl font-bold text-sky-400">10M+</div>
+                            <div class="text-[11px] text-slate-400">Daily Retail Events</div>
+                        </div>
+                        <div class="p-3 bg-slate-900/80 rounded-lg border border-slate-800">
+                            <div class="text-xl font-bold text-emerald-400">Direct Lake</div>
+                            <div class="text-[11px] text-slate-400">Zero-ETL Power BI</div>
+                        </div>
+                        <div class="p-3 bg-slate-900/80 rounded-lg border border-slate-800">
+                            <div class="text-xl font-bold text-indigo-400">3-Tier</div>
+                            <div class="text-[11px] text-slate-400">Medallion Delta</div>
+                        </div>
+                        <div class="p-3 bg-slate-900/80 rounded-lg border border-slate-800">
+                            <div class="text-xl font-bold text-amber-400">Copilot AI</div>
+                            <div class="text-[11px] text-slate-400">Automated Insights</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 1: INTERACTIVE MEDALLION ARCHITECTURE VISUALIZER -->
+        <section id="architecture" class="space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div>
+                    <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-network-wired text-sky-400"></i> Medallion Lakehouse Flowchart
+                    </h2>
+                    <p class="text-xs text-slate-400">Click any architectural layer to inspect its technical implementation details.</p>
+                </div>
+                <div class="flex items-center gap-2 text-xs">
+                    <span class="px-2 py-1 rounded bg-amber-950/60 border border-amber-800/50 text-amber-300">Bronze: Raw</span>
+                    <i class="fa-solid fa-arrow-right text-slate-600"></i>
+                    <span class="px-2 py-1 rounded bg-slate-800 border border-slate-600 text-slate-300">Silver: Cleaned</span>
+                    <i class="fa-solid fa-arrow-right text-slate-600"></i>
+                    <span class="px-2 py-1 rounded bg-yellow-950/60 border border-yellow-700/50 text-yellow-300">Gold: Star Schema</span>
+                </div>
+            </div>
+
+            <!-- Architecture Diagram Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                
+                <!-- Step 1: Ingestion -->
+                <div onclick="selectArchLayer('ingestion')" id="card-ingestion" class="cursor-pointer bg-slate-900 hover:bg-slate-850 p-5 rounded-xl border border-slate-800 hover:border-sky-500/50 transition duration-200 relative group">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-400">SOURCE</span>
+                        <i class="fa-solid fa-database text-sky-400 text-lg group-hover:scale-110 transition"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-sm mb-1">Data Ingestion</h3>
+                    <p class="text-xs text-slate-400 mb-3">POS Systems, SAP ERP, MongoDB, SFTP Files</p>
+                    <div class="text-[11px] text-slate-500 font-mono">ADF Pipelines / Fabric Shortcuts</div>
+                </div>
+
+                <!-- Step 2: Bronze Layer -->
+                <div onclick="selectArchLayer('bronze')" id="card-bronze" class="cursor-pointer bg-slate-900 hover:bg-slate-850 p-5 rounded-xl border border-slate-800 hover:border-amber-600/50 transition duration-200 relative group">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-mono px-2 py-0.5 rounded bg-amber-950 text-amber-400 border border-amber-800/40">BRONZE</span>
+                        <i class="fa-solid fa-cubes text-amber-600 text-lg group-hover:scale-110 transition"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-sm mb-1">Raw Lakehouse</h3>
+                    <p class="text-xs text-slate-400 mb-3">Append-only append logs, raw JSON & Parquet</p>
+                    <div class="text-[11px] text-amber-500/80 font-mono">Delta Lake Parquet Format</div>
+                </div>
+
+                <!-- Step 3: Silver Layer -->
+                <div onclick="selectArchLayer('silver')" id="card-silver" class="cursor-pointer bg-slate-900 hover:bg-slate-850 p-5 rounded-xl border border-slate-800 hover:border-slate-400/50 transition duration-200 relative group">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">SILVER</span>
+                        <i class="fa-solid fa-filter text-slate-300 text-lg group-hover:scale-110 transition"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-sm mb-1">Refined Layer</h3>
+                    <p class="text-xs text-slate-400 mb-3">Deduplicated, PySpark cleansed, schema-enforced</p>
+                    <div class="text-[11px] text-slate-400 font-mono">PySpark / Spark Notebooks</div>
+                </div>
+
+                <!-- Step 4: Gold Layer & Power BI -->
+                <div onclick="selectArchLayer('gold')" id="card-gold" class="cursor-pointer bg-slate-900 hover:bg-slate-850 p-5 rounded-xl border border-slate-800 hover:border-yellow-500/50 transition duration-200 relative group">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-mono px-2 py-0.5 rounded bg-yellow-950 text-yellow-400 border border-yellow-700/40">GOLD</span>
+                        <i class="fa-solid fa-chart-pie text-yellow-400 text-lg group-hover:scale-110 transition"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-sm mb-1">Star Schema & Power BI</h3>
+                    <p class="text-xs text-slate-400 mb-3">Fact & Dim tables, Direct Lake connection, Copilot AI</p>
+                    <div class="text-[11px] text-yellow-500/80 font-mono">Direct Lake / DAX Measures</div>
+                </div>
+
+            </div>
+
+            <!-- Detailed Layer Explanation Drawer -->
+            <div id="arch-details-box" class="bg-slate-900/90 rounded-xl p-5 border border-sky-800/50 transition-all duration-300">
+                <div class="flex items-start justify-between">
+                    <div>
+                        <span id="arch-detail-tag" class="text-xs font-mono px-2.5 py-1 rounded bg-sky-950 text-sky-400 border border-sky-800">LAYER DETAIL</span>
+                        <h4 id="arch-detail-title" class="text-base font-bold text-white mt-2">Data Ingestion Layer (Source to Lakehouse)</h4>
+                    </div>
+                    <span class="text-xs text-slate-500 font-mono">Status: Production Active</span>
+                </div>
+                <p id="arch-detail-desc" class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+                    Data pipelines orchestrated in Azure Data Factory / Fabric Data Factory ingest daily sales batches, inventory updates, and POS transaction files into OneLake storage without data duplication.
+                </p>
+                <div id="arch-detail-bullets" class="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-4 text-xs">
+                    <div class="bg-slate-950 p-3 rounded-lg border border-slate-800">
+                        <div class="font-semibold text-sky-400 mb-1"><i class="fa-solid fa-bolt"></i> Pipeline Frequency</div>
+                        <div class="text-slate-400">Hourly Incremental & Daily Full Snapshot</div>
+                    </div>
+                    <div class="bg-slate-950 p-3 rounded-lg border border-slate-800">
+                        <div class="font-semibold text-emerald-400 mb-1"><i class="fa-solid fa-shield-halved"></i> Governance</div>
+                        <div class="text-slate-400">Sensitivity Labels & Azure AD Integration</div>
+                    </div>
+                    <div class="bg-slate-950 p-3 rounded-lg border border-slate-800">
+                        <div class="font-semibold text-indigo-400 mb-1"><i class="fa-solid fa-file-code"></i> Ingestion Format</div>
+                        <div class="text-slate-400">JSON, CSV, SQL CDC & Parquet</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: CODE & PIPELINE INSPECTOR -->
+        <section id="code-inspector" class="space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div>
+                    <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-code text-indigo-400"></i> PySpark & Data Engineering Notebook Inspector
+                    </h2>
+                    <p class="text-xs text-slate-400">Examine production PySpark code used for Medallion transformations & Delta Lake modeling.</p>
+                </div>
+                <!-- Code Tab Selector -->
+                <div class="flex bg-slate-900 p-1 rounded-lg border border-slate-800 text-xs">
+                    <button onclick="switchCodeTab('silver')" id="tab-btn-silver" class="px-3 py-1.5 rounded-md font-medium text-white bg-sky-600 shadow-sm transition">Bronze to Silver (Cleaning)</button>
+                    <button onclick="switchCodeTab('gold')" id="tab-btn-gold" class="px-3 py-1.5 rounded-md font-medium text-slate-400 hover:text-white transition">Silver to Gold (Star Schema)</button>
+                </div>
+            </div>
+
+            <!-- Code Window Container -->
+            <div class="bg-slate-900 rounded-xl border border-slate-800 overflow-hidden shadow-2xl">
+                <!-- Window Titlebar -->
+                <div class="bg-slate-950 px-4 py-2.5 border-b border-slate-800 flex items-center justify-between text-xs">
+                    <div class="flex items-center space-x-2">
+                        <span class="w-3 h-3 rounded-full bg-rose-500/80 inline-block"></span>
+                        <span class="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
+                        <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
+                        <span id="code-filename" class="ml-2 font-mono text-slate-400">01_bronze_to_silver_retail_cleansing.py</span>
+                    </div>
+                    <button onclick="copyCodeSnippet()" class="flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-medium text-slate-300 hover:text-white bg-slate-800 hover:bg-slate-700 rounded border border-slate-700 transition">
+                        <i class="fa-solid fa-copy"></i> Copy Code
+                    </button>
+                </div>
+
+                <!-- Code Block -->
+                <pre class="p-4 overflow-x-auto text-xs leading-relaxed font-mono text-slate-200 code-block bg-slate-950/80 max-h-[420px]" id="code-content">
+<!-- Code loaded via JS -->
+                </pre>
+            </div>
+        </section>
+
+        <!-- SECTION 3: MOCK POWER BI EXECUTIVE DASHBOARD -->
+        <section id="powerbi-demo" class="space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div>
+                    <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-chart-line text-emerald-400"></i> Interactive Power BI Executive Dashboard
+                    </h2>
+                    <p class="text-xs text-slate-400">Simulating Direct Lake mode reporting on Gold Delta tables with DAX KPI cards and Copilot storytelling.</p>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-xs text-emerald-400 font-mono flex items-center gap-1">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> Direct Lake Connected
+                    </span>
+                </div>
+            </div>
+
+            <!-- Dashboard Frame -->
+            <div class="bg-slate-900 rounded-xl border border-slate-800 p-4 sm:p-6 space-y-6 shadow-2xl">
+                
+                <!-- Dashboard Control Bar (Slicers) -->
+                <div class="flex flex-wrap items-center justify-between gap-4 bg-slate-950 p-4 rounded-lg border border-slate-800 text-xs">
+                    <div class="flex flex-wrap items-center gap-3">
+                        <span class="font-semibold text-slate-400"><i class="fa-solid fa-filter text-sky-400"></i> Region:</span>
+                        <select id="slicer-region" onchange="updateDashboardMetrics()" class="bg-slate-900 text-slate-200 border border-slate-700 rounded px-2.5 py-1.5 focus:outline-none focus:border-sky-500">
+                            <option value="all">All Regions (Global)</option>
+                            <option value="north">North America</option>
+                            <option value="europe">Europe (EMEA)</option>
+                            <option value="asia">Asia-Pacific</option>
+                        </select>
+
+                        <span class="font-semibold text-slate-400 ml-2">Category:</span>
+                        <select id="slicer-category" onchange="updateDashboardMetrics()" class="bg-slate-900 text-slate-200 border border-slate-700 rounded px-2.5 py-1.5 focus:outline-none focus:border-sky-500">
+                            <option value="all">All Categories</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="apparel">Apparel</option>
+                            <option value="home">Home & Kitchen</option>
+                        </select>
+                    </div>
+
+                    <div class="text-slate-400 text-[11px] font-mono">
+                        Last Refresh: <span class="text-sky-400">Just Now (Real-Time Direct Lake)</span>
+                    </div>
+                </div>
+
+                <!-- KPI Card Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-1">
+                        <div class="flex items-center justify-between text-xs text-slate-400">
+                            <span>Total Revenue</span>
+                            <i class="fa-solid fa-dollar-sign text-emerald-400"></i>
+                        </div>
+                        <div class="text-2xl font-extrabold text-white" id="kpi-revenue">$42.8M</div>
+                        <div class="text-[11px] text-emerald-400 flex items-center gap-1">
+                            <i class="fa-solid fa-arrow-up"></i> +14.2% vs previous period
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-1">
+                        <div class="flex items-center justify-between text-xs text-slate-400">
+                            <span>Inventory Turnover</span>
+                            <i class="fa-solid fa-boxes-stacked text-sky-400"></i>
+                        </div>
+                        <div class="text-2xl font-extrabold text-white" id="kpi-turnover">8.4x</div>
+                        <div class="text-[11px] text-sky-400 flex items-center gap-1">
+                            <i class="fa-solid fa-circle-check"></i> Optimal stock velocity
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-1">
+                        <div class="flex items-center justify-between text-xs text-slate-400">
+                            <span>Out-of-Stock Risk</span>
+                            <i class="fa-solid fa-triangle-exclamation text-amber-400"></i>
+                        </div>
+                        <div class="text-2xl font-extrabold text-amber-400" id="kpi-out-of-stock">34 SKUs</div>
+                        <div class="text-[11px] text-amber-400 flex items-center gap-1">
+                            <i class="fa-solid fa-triangle-exclamation"></i> Reorder alert triggered
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-1">
+                        <div class="flex items-center justify-between text-xs text-slate-400">
+                            <span>DAX Execution Time</span>
+                            <i class="fa-solid fa-gauge-high text-indigo-400"></i>
+                        </div>
+                        <div class="text-2xl font-extrabold text-indigo-400" id="kpi-query-speed">18ms</div>
+                        <div class="text-[11px] text-indigo-400 flex items-center gap-1">
+                            <i class="fa-solid fa-bolt"></i> Direct Lake Memory Cache
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Copilot AI Narrative Box -->
+                <div class="bg-gradient-to-r from-indigo-950/60 via-slate-950 to-sky-950/60 p-4 rounded-xl border border-indigo-800/40 space-y-2">
+                    <div class="flex items-center gap-2 text-xs font-semibold text-indigo-300">
+                        <i class="fa-solid fa-wand-magic-sparkles text-indigo-400"></i> Power BI Copilot AI Narrative Summary
+                    </div>
+                    <p id="copilot-narrative-text" class="text-xs sm:text-sm text-slate-300 leading-relaxed italic">
+                        "Total Revenue for North America increased by 14.2% driven primarily by high demand in Electronics. However, 34 SKUs in Home & Kitchen are approaching safety stock thresholds. Recommended action: expedite warehouse transfer from Midwest fulfillment center."
+                    </p>
+                </div>
+
+                <!-- Category Breakdown Table -->
+                <div class="bg-slate-950 rounded-xl border border-slate-800 overflow-hidden">
+                    <div class="px-4 py-3 border-b border-slate-800 font-semibold text-xs text-slate-300 flex items-center justify-between">
+                        <span>Category Performance Summary (Gold Dim_Product + Fact_Sales)</span>
+                        <span class="text-[11px] font-mono text-slate-500">Live Query Engine</span>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-xs text-left text-slate-300">
+                            <thead class="bg-slate-900 text-slate-400 font-mono text-[11px] uppercase">
+                                <tr>
+                                    <th class="px-4 py-2.5">Category</th>
+                                    <th class="px-4 py-2.5">Sales Units</th>
+                                    <th class="px-4 py-2.5">Gross Revenue</th>
+                                    <th class="px-4 py-2.5">Profit Margin</th>
+                                    <th class="px-4 py-2.5">Stock Status</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-800/60 font-mono" id="table-category-body">
+                                <tr>
+                                    <td class="px-4 py-3 font-sans font-semibold text-white">Electronics</td>
+                                    <td class="px-4 py-3">142,500</td>
+                                    <td class="px-4 py-3 text-emerald-400">$18,450,000</td>
+                                    <td class="px-4 py-3">28.4%</td>
+                                    <td class="px-4 py-3"><span class="px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800">Healthy</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 font-sans font-semibold text-white">Apparel & Footwear</td>
+                                    <td class="px-4 py-3">210,800</td>
+                                    <td class="px-4 py-3 text-emerald-400">$14,200,000</td>
+                                    <td class="px-4 py-3">34.1%</td>
+                                    <td class="px-4 py-3"><span class="px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800">Healthy</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 font-sans font-semibold text-white">Home & Kitchen</td>
+                                    <td class="px-4 py-3">95,400</td>
+                                    <td class="px-4 py-3 text-emerald-400">$10,150,000</td>
+                                    <td class="px-4 py-3">22.0%</td>
+                                    <td class="px-4 py-3"><span class="px-2 py-0.5 rounded bg-amber-950 text-amber-400 border border-amber-800">Low Stock</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 4: GITHUB README BLUEPRINT -->
+        <section id="github-readme" class="space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div>
+                    <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-brands fa-github text-slate-300"></i> GitHub Repository README Blueprint
+                    </h2>
+                    <p class="text-xs text-slate-400">Copyable Markdown documentation ready to paste into your GitHub repository `README.md` file.</p>
+                </div>
+                <button onclick="copyReadmeMarkdown()" class="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-lg transition">
+                    <i class="fa-solid fa-copy"></i> Copy Markdown README
+                </button>
+            </div>
+
+            <!-- Markdown Document Display Box -->
+            <div class="bg-slate-900 rounded-xl border border-slate-800 p-4 sm:p-6 font-mono text-xs text-slate-300 overflow-x-auto leading-relaxed max-h-[500px] overflow-y-auto" id="readme-markdown-box">
+                <div class="text-sky-400 font-bold text-sm"># Retail Sales & Inventory Optimization Lakehouse (Microsoft Fabric)</div>
+                <div class="text-slate-500 my-2">[![Microsoft Fabric](https://img.shields.io/badge/Microsoft_Fabric-Certified-0078D4?logo=microsoft)](https://learn.microsoft.com) [![PySpark](https://img.shields.io/badge/PySpark-3.4+-E25A1C?logo=apachespark)](https://spark.apache.org) [![Delta Lake](https://img.shields.io/badge/Delta_Lake-Medallion-00ADF0)](https://delta.io)</div>
+                
+                <p class="my-3 text-slate-300">
+                    This repository contains the end-to-end implementation of an enterprise-grade retail analytics lakehouse using **Microsoft Fabric**, **Delta Lake**, **PySpark**, and **Power BI Direct Lake mode**.
+                </p>
+
+                <div class="text-amber-400 font-bold mt-4 mb-2">## 🏗️ Architecture Overview</div>
+                <p class="text-slate-300">
+                    The project follows the **Medallion Architecture** pattern:
+                    <br>- **Bronze Layer:** Raw data ingestion from POS systems, MongoDB, and SFTP into OneLake using Azure Data Factory pipelines.
+                    <br>- **Silver Layer:** Data scrubbing, null handling, deduplication, and schema validation via Fabric PySpark Notebooks.
+                    <br>- **Gold Layer:** Dimensional Star Schema modeling (Fact_Sales, Dim_Product, Dim_Store, Dim_Customer) stored in Delta format.
+                    <br>- **Reporting:** Real-time Power BI reporting using Direct Lake mode with Copilot AI narrative integration.
+                </p>
+
+                <div class="text-amber-400 font-bold mt-4 mb-2">## 🚀 Key Features & Innovations</div>
+                <p class="text-slate-300">
+                    - **Direct Lake Mode:** Achieved sub-second DAX query execution without data duplicate refreshes.
+                    - **Automated Data Quality:** PySpark validation rules enforce constraints before promotion to Silver.
+                    - **Power BI Copilot Integration:** Embedded natural language query engines for rapid narrative generation.
+                </p>
+
+                <div class="text-amber-400 font-bold mt-4 mb-2">## 🛠️ Tech Stack</div>
+                <p class="text-slate-300">
+                    Microsoft Fabric, PySpark, Azure Data Factory, Delta Lake, Power BI Desktop/Service, T-SQL, DAX, Git, Azure DevOps.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-slate-800 py-6 text-xs text-slate-400 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+                <p class="font-semibold text-slate-200">Abhishek Das — Senior Data & Analytics Engineer</p>
+                <p class="text-[11px] text-slate-500">Microsoft Certified: Fabric Analytics Engineer Associate | Edison, NJ</p>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="mailto:abhishekdas.azure@gmail.com" class="hover:text-sky-400 transition"><i class="fa-solid fa-envelope"></i> Email</a>
+                <span class="text-slate-700">|</span>
+                <span class="text-slate-500"><i class="fa-solid fa-phone"></i> (561)-876-0555</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification Element -->
+    <div id="toast" class="fixed bottom-5 right-5 bg-sky-600 text-white px-4 py-2.5 rounded-xl shadow-2xl text-xs font-semibold flex items-center gap-2 transform translate-y-20 opacity-0 transition-all duration-300 z-50">
+        <i class="fa-solid fa-check-circle"></i> <span id="toast-message">Copied to clipboard!</span>
+    </div>
+
+    <!-- JavaScript Logic & Data Handling -->
+    <script>
+        // PySpark Code Snippets for Tab Switching
+        const codeSnippets = {
+            silver: `# ==============================================================================
+# PIPELINE: Bronze to Silver Cleansing (Microsoft Fabric PySpark Notebook)
+# AUTHOR: Abhishek Das (Senior Data & Analytics Engineer)
+# DESCRIPTION: Cleanses raw retail POS transaction logs, handles nulls, and deduplicates
+# ==============================================================================
+
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import col, when, current_timestamp, to_date, trim, upper
+
+# 1. Read Raw Delta Table from Bronze Lakehouse
+bronze_df = spark.read.format("delta").table("retail_lakehouse.bronze_pos_transactions")
+
+# 2. Perform Data Scrubbing & Schema Validation
+silver_cleansed_df = (
+    bronze_df
+    # Remove duplicates based on TransactionID and StoreID
+    .dropDuplicates(["transaction_id", "store_id"])
+    # Clean text columns
+    .withColumn("product_category", upper(trim(col("product_category"))))
+    .withColumn("store_region", upper(trim(col("store_region"))))
+    # Fill null quantities with 1 and compute total sale amount
+    .withColumn("quantity", when(col("quantity").isNull() | (col("quantity") <= 0), 1).otherwise(col("quantity")))
+    .withColumn("unit_price", when(col("unit_price").isNull(), 0.0).otherwise(col("unit_price")))
+    .withColumn("total_amount", col("quantity") * col("unit_price"))
+    # Parse dates and append ingestion timestamp
+    .withColumn("transaction_date", to_date(col("transaction_timestamp")))
+    .withColumn("silver_ingested_at", current_timestamp())
+)
+
+# 3. Write Cleansed Data to Silver Delta Layer with Schema Enforcement
+(
+    silver_cleansed_df.write
+    .format("delta")
+    .mode("overwrite")
+    .option("overwriteSchema", "true")
+    .saveAsTable("retail_lakehouse.silver_pos_transactions")
+)
+
+print("Successfully transformed Bronze raw logs to Silver refined Delta Table.")`,
+            
+            gold: `# ==============================================================================
+# PIPELINE: Silver to Gold Star Schema Modeling (Delta Lake Star Schema)
+# AUTHOR: Abhishek Das (Senior Data & Analytics Engineer)
+# DESCRIPTION: Constructs Fact_Sales and Dim_Product for Direct Lake Power BI Consumption
+# ==============================================================================
+
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import col, hash, current_timestamp
+
+# 1. Read Refined Silver Delta Tables
+silver_df = spark.read.format("delta").table("retail_lakehouse.silver_pos_transactions")
+
+# 2. Build Gold Dimension Table: Dim_Product
+dim_product_df = (
+    silver_df
+    .select("product_id", "product_name", "product_category")
+    .distinct()
+    .withColumn("product_key", hash(col("product_id"))) # Surrogate Key
+)
+
+dim_product_df.write.format("delta").mode("overwrite").saveAsTable("retail_lakehouse.gold_dim_product")
+
+# 3. Build Gold Fact Table: Fact_Sales
+fact_sales_df = (
+    silver_df
+    .select(
+        col("transaction_id"),
+        col("transaction_date"),
+        col("store_id"),
+        col("product_id"),
+        hash(col("product_id")).alias("product_key"),
+        col("quantity"),
+        col("unit_price"),
+        col("total_amount")
+    )
+    .withColumn("gold_loaded_at", current_timestamp())
+)
+
+fact_sales_df.write.format("delta").mode("overwrite").saveAsTable("retail_lakehouse.gold_fact_sales")
+
+print("Gold Layer Star Schema (Fact_Sales, Dim_Product) successfully published to OneLake.")`
+        };
+
+        // Initialize Page Default Code
+        document.getElementById('code-content').textContent = codeSnippets.silver;
+
+        // Switch Code Tabs
+        function switchCodeTab(tab) {
+            const silverBtn = document.getElementById('tab-btn-silver');
+            const goldBtn = document.getElementById('tab-btn-gold');
+            const codeEl = document.getElementById('code-content');
+            const filenameEl = document.getElementById('code-filename');
+
+            if (tab === 'silver') {
+                silverBtn.className = "px-3 py-1.5 rounded-md font-medium text-white bg-sky-600 shadow-sm transition";
+                goldBtn.className = "px-3 py-1.5 rounded-md font-medium text-slate-400 hover:text-white transition";
+                codeEl.textContent = codeSnippets.silver;
+                filenameEl.textContent = "01_bronze_to_silver_retail_cleansing.py";
+            } else {
+                goldBtn.className = "px-3 py-1.5 rounded-md font-medium text-white bg-sky-600 shadow-sm transition";
+                silverBtn.className = "px-3 py-1.5 rounded-md font-medium text-slate-400 hover:text-white transition";
+                codeEl.textContent = codeSnippets.gold;
+                filenameEl.textContent = "02_silver_to_gold_star_schema.py";
+            }
+        }
+
+        // Architecture Layer Inspector Click Logic
+        function selectArchLayer(layer) {
+            const titleEl = document.getElementById('arch-detail-title');
+            const descEl = document.getElementById('arch-detail-desc');
+            const tagEl = document.getElementById('arch-detail-tag');
+
+            const layers = {
+                ingestion: {
+                    tag: "DATA INGESTION",
+                    title: "Data Ingestion (Source Systems to Fabric OneLake)",
+                    desc: "Automated ingestion pipelines engineered via Azure Data Factory and Microsoft Fabric shortcuts. Captures raw JSON payloads, SFTP retail data, and SQL Server CDC streams into OneLake landing zones."
+                },
+                bronze: {
+                    tag: "BRONZE LAYER",
+                    title: "Bronze Layer (Raw Delta Tables)",
+                    desc: "Stores raw historical and real-time append-only transaction logs in Delta Parquet format. Preserves original source schema without transformation for full auditability."
+                },
+                silver: {
+                    tag: "SILVER LAYER",
+                    title: "Silver Layer (Data Cleaning & Quality Enforcement)",
+                    desc: "PySpark notebooks perform schema validation, remove duplicates, cleanse missing fields, and standardize data across store locations to establish a reliable source of truth."
+                },
+                gold: {
+                    tag: "GOLD LAYER & POWER BI",
+                    title: "Gold Layer (Star Schema & Direct Lake Reporting)",
+                    desc: "Creates business-ready Fact and Dimension tables. Power BI connects directly via Direct Lake mode, executing DAX queries against OneLake memory caches with zero data lag."
+                }
+            };
+
+            const data = layers[layer];
+            tagEl.textContent = data.tag;
+            titleEl.textContent = data.title;
+            descEl.textContent = data.desc;
+        }
+
+        // Mock Power BI Dashboard Slicer Interactivity
+        function updateDashboardMetrics() {
+            const region = document.getElementById('slicer-region').value;
+            const category = document.getElementById('slicer-category').value;
+
+            const revEl = document.getElementById('kpi-revenue');
+            const turnEl = document.getElementById('kpi-turnover');
+            const oosEl = document.getElementById('kpi-out-of-stock');
+            const copilotEl = document.getElementById('copilot-narrative-text');
+
+            if (region === 'north') {
+                revEl.textContent = "$24.6M";
+                turnEl.textContent = "9.1x";
+                oosEl.textContent = "12 SKUs";
+                copilotEl.textContent = '"North America region performance remains strong (+16.8% YoY). Electronics category leading growth. Low stock risk localized to Midwest warehouses."';
+            } else if (region === 'europe') {
+                revEl.textContent = "$11.2M";
+                turnEl.textContent = "7.4x";
+                oosEl.textContent = "18 SKUs";
+                copilotEl.textContent = '"EMEA sales steady with Apparel performing above expectations. Supply chain delivery delays in Central Europe causing elevated out-of-stock alerts."';
+            } else if (region === 'asia') {
+                revEl.textContent = "$7.0M";
+                turnEl.textContent = "8.2x";
+                oosEl.textContent = "4 SKUs";
+                copilotEl.textContent = '"APAC region showing rapid expansion in Home & Kitchen. Inventory velocity is healthy across regional distribution hubs."';
+            } else {
+                revEl.textContent = "$42.8M";
+                turnEl.textContent = "8.4x";
+                oosEl.textContent = "34 SKUs";
+                copilotEl.textContent = '"Total Revenue for Global operations reached $42.8M. Electronics leads overall revenue while 34 SKUs in Home & Kitchen are approaching safety stock thresholds."';
+            }
+        }
+
+        // Utility: Toast Notification
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = msg;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        // Clipboard Actions
+        function copyContactInfo() {
+            const text = "Abhishek Das | Phone: (561)-876-0555 | Email: abhishekdas.azure@gmail.com";
+            navigator.clipboard.writeText(text).then(() => showToast("Contact info copied!"));
+        }
+
+        function copyCodeSnippet() {
+            const codeText = document.getElementById('code-content').textContent;
+            navigator.clipboard.writeText(codeText).then(() => showToast("PySpark code copied!"));
+        }
+
+        function copyReadmeMarkdown() {
+            const markdownText = document.getElementById('readme-markdown-box').innerText;
+            navigator.clipboard.writeText(markdownText).then(() => showToast("Markdown README copied!"));
+        }
+
+        // Smooth Scroll Helper
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
